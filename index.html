@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>TodoApp</title>
+</head>
+
+<body>
+    <header class="nav-bar">
+        <strong class="app-title">ToDo App</strong>
+        <img id="loader" style="display: none;" src="./assets/refresh_FILL0_wght400_GRAD0_opsz48.svg" width="30px" alt="">
+        <button id="refresh-button" onclick="loadTodos()">
+            <img src="./assets/refresh_FILL0_wght400_GRAD0_opsz48.svg" width="30px" alt=""></button>
+    </header>
+    <div id="todos-container" class="todos-container">
+        <div class="todo-card">
+            <!-- <span class="todo-name">#NAME</span>
+            <div class="tag-container"></div>
+            <span>#CREATIONDATE</span>
+            <div class="divider"></div>
+            <div class="button-container">
+                <button class="delete button"><img width="20px" src="./assets/delete_FILL0_wght400_GRAD0_opsz48.svg" alt=""></button>
+                <button class="edit-button"><img width="20px" src="./assets/edit_note_FILL0_wght400_GRAD0_opsz48.svg" alt=""></button>
+                <button class="done-button"><img width="20px" src="./assets/done_all_FILL0_wght400_GRAD0_opsz48.svg" alt=""></button>
+            </div> -->
+        </div>
+    </div>
+    <button onclick="goToTodoPage">
+        <img src="./assets/add_FILL0_wght400_GRAD0_opsz48.svg" width="40px" alt="">
+    </button>
+</body>
+<script src="./todo.js"></script>
+<script src="./app.js"></script>
+
+</html>

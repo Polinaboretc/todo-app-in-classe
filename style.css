@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,700&display=swap');
+
+*{
+    color: #313131;
+}
+
+html, body{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-weight: 400;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-bar{
+    min-height: 50px;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    justify-content: space-between;
+    font-family: 'Roboto Flex', sans-serif;
+    font-weight: 700
+}
+
+.app-title{
+    font-size: x-large;
+}
+
+.todos-container{
+    flex-grow: 1;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+}
+
+.add-button{
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+    height: 50px;
+    width: 50px;
+    border-color: #313131;
+    border-style: solid;
+    border-radius: 50%;
+    background-color: rgb(225, 255, 224);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    background: transparent;
+    border-style: none;
+    cursor: pointer;
+}
+
+.todo-card{
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border-bottom: 1px solid;
+    gap: 4px;
+}
+
+.divider{
+    background-color: #313131;
+    width: 100%;
+    height: 2px;
+}
+
+.tag{
+    border: 1px solid;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: #313131;
+    color: white;
+    box-sizing: border-box;
+    font-size: small;
+
+}
+
+.todo-name{
+    font-size: large;
+    font-weight: bold;
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-between;
+}
