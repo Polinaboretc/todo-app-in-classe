@@ -1,57 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
 
 *{
-    color: #313131;
+    color: #3b3b3b;
 }
 
 html, body{
     width: 100vw;
     height: 100vh;
-    background-color: rgb(255, 255, 255);
+    background-color: #f5f5f5;
     margin: 0px;
     padding: 0px;
-    font-family: 'Roboto Flex', sans-serif;
+    font-family: 'Ubuntu', monospace;
     font-weight: 400;
 }
 
 .body{
     display: flex;
     flex-direction: column;
+    background-color: #5685FE;
 }
 
 .nav-bar{
     min-height: 50px;
     box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
-    border-bottom: 1px solid;
+    background-color: #5685FE;
     display: flex;
     align-items: center;
     padding: 8px;
     justify-content: space-between;
-    font-family: 'Roboto Flex', sans-serif;
-    font-weight: 700
+    font-family: 'Ubuntu', monospace;
+    font-weight: 700;
+
 }
 
 .app-title{
-    font-size: x-large;
+    font-size: 22px;
+    color: #f5f5f5;
+
 }
 
 .todos-container{
     flex-grow: 1;
-    background-color: rgb(255, 255, 255);
+    background-color: #f5f5f5;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 
 .add-button{
     position: fixed;
     bottom: 8px;
     right: 8px;
-    height: 50px;
-    width: 50px;
-    border-color: #313131;
-    border-style: solid;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
-    background-color: rgb(225, 255, 224);
+    background-color: #5685FE;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,10 +66,15 @@ button{
 }
 
 .todo-card{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: #fbfbfb;
     display: flex;
     flex-direction: column;
     padding: 16px;
-    border-bottom: 1px solid;
+    border-radius: 20px;
+    box-shadow: 3px 3px 10px -3px rgba(31, 84, 109, 0.3);
     gap: 4px;
 }
 
@@ -81,7 +88,7 @@ button{
     border: 1px solid;
     padding: 2px;
     border-radius: 5px;
-    background-color: #313131;
+    background-color: #5685FE;
     color: white;
     box-sizing: border-box;
     font-size: small;
@@ -93,7 +100,9 @@ button{
     font-weight: bold;
 }
 
-.button-container{
+.buttons-container{
     display: flex;
     justify-content: space-between;
 }
+
+

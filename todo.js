@@ -1,10 +1,10 @@
 class Todo{
 
     static PRIORITY = {
-      low: { order: 0, name: 'bassa' ,color: 'green'},
-      medium: { order: 1, name: 'media', color: 'yellow' },
-      high: { order: 2, name: 'alta', color: 'orange' },
-      veryHigh: { order: 3, name: 'molto alta', color: 'red' }
+      low: { order: 0, name: 'bassa' ,color: 'cadetblue'},
+      medium: { order: 1, name: 'media', color: 'rgb(251, 239, 129)'},
+      high: { order: 2, name: 'alta', color: 'lightsalmon' },
+      veryHigh: { order: 3, name: 'molto alta', color: 'rgb(253, 98, 98)'}
     }
   
     constructor(name, tags = [], creationDate = new Date(), priority = Todo.PRIORITY.low){
