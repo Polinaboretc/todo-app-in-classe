@@ -2,9 +2,22 @@ const BASE_URL = 'https://628b2f177886bbbb37b20cd9.mockapi.io/todos'
 let todosArray = [];
 
 
-function goToTodoPage() {
-  window.location.href = "/todo.html";
+function goToTodoPage(id) {
+  let urlString = "/todo.html"
+  if (id){
+    urlString = urlString + '?id=' + id;
+  }
+  window.location.href = urlString;
 }
+
+// function goToTodoPage2(todo) {
+//   let urlString = "/todo.html"
+//   if (todo) {
+//     const todoString = JSON.stringify(todo);
+//     sessionStorage.setItem('selectedTodo', todoString);
+//   }
+//   window.location.href = urlString;
+// }
 
 function populateTagContainer(container, tags){
   for (const tag of tags) {
@@ -62,14 +75,24 @@ function removeTodoAndRefesh(todo){
   displayTodos(todosArray);
 }
 
-function deleteTodo(id){
+function deleteTodo(id) {
+
   startLoading()
   const deleteUrl = BASE_URL + '/' + id;
-  const fetchOptions = {method: 'delete'};
+  const fetchOptions = { method: 'delete' };
   fetch(deleteUrl, fetchOptions)
-  .then(response => response.json())
-  .then(result => removeTodoAndRefesh(result))
-  .catch(error => stopLoading())
+    .then(response => response.json())
+    .then(result => removeTodoAndRefesh(result))
+    .catch(error => stopLoading())
+
+}
+
+function requestConfirmToDelete(id) {
+  if (confirm('ma cosa combini?')) {
+    deleteTodo(id);
+  } else {
+    alert('meno male')
+  }
 }
 
 function displayTodos(todos){
@@ -90,7 +113,10 @@ function displayTodos(todos){
     populateTagContainer(tagContainer, todo.tags)
 
     const deleteButton = todoCard.querySelector('.delete-button');
-    deleteButton.onclick = () => deleteTodo(todo.id);
+    deleteButton.onclick = () => requestConfirmToDelete(todo.id);
+
+    const editButton = todoCard.querySelector('.edit-button');
+    editButton.onclick = () => goToTodoPage(todo.id);
 
     const divider = todoCard.querySelector('.divider');
     divider.style.backgroundColor = todo.priority.color;
@@ -109,16 +135,16 @@ function displayTodos(todos){
     // todoCard.appendChild(button);
 
     todosContainer.appendChild(todoCard);
-
   }
-  
 }
 
 function initTodos(todos){
   stopLoading();
   todosArray = todos.map(obj => Todo.fromDbObj(obj));
+  todosArray.sort(Todo.orderToDoByPriority);
   displayTodos(todosArray);
 }
+
 
 function loadTodos(){
   startLoading()
@@ -129,11 +155,3 @@ function loadTodos(){
 }
 
 loadTodos()
-
-
-
-// microtask
-// chiedere conferma della cancellazione con alert
-// ordinare i todo per priorità
-// fare bella app
-
