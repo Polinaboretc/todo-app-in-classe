@@ -7,7 +7,7 @@
 html, body{
     width: 100vw;
     height: 100vh;
-    background-color: #f5f5f5;
+    background-color: #f4f5ff;
     margin: 0px;
     padding: 0px;
     font-family: 'Ubuntu', monospace;
@@ -41,7 +41,7 @@ html, body{
 
 .todos-container{
     flex-grow: 1;
-    background-color: #f5f5f5;
+    background-color: #f4f5ff;
     box-sizing: border-box;
     border-radius: 10px;
 }
@@ -74,7 +74,7 @@ button{
     flex-direction: column;
     padding: 16px;
     border-radius: 20px;
-    box-shadow: 3px 3px 10px -3px rgba(31, 84, 109, 0.3);
+    box-shadow: 3px 3px 10px -3px rgba(31, 84, 109, 0.4);
     gap: 4px;
 }
 
