@@ -69,7 +69,8 @@ button{
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 10px;
-    background-color: #fbfbfb;
+    background-color: rgb(253, 253, 253, 0.8);
+    border: white solid 3px;
     display: flex;
     flex-direction: column;
     padding: 16px;
@@ -84,7 +85,7 @@ button{
     height: 2px;
 }
 
-.tag{
+.chip{
     border: 1px solid;
     padding: 2px;
     border-radius: 5px;
@@ -106,3 +107,22 @@ button{
 }
 
 
+.todo-container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    
+  }
+  
+  .section-title{
+    font-size: large;
+  }
+  
+  .save-button{
+    background-color: #5685FE;
+    color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 8px;
+  }
