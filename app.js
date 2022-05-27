@@ -1,10 +1,11 @@
 const BASE_URL = 'https://628b2f177886bbbb37b20cd9.mockapi.io/todos'
+
 let todosArray = [];
 
 
 function goToTodoPage(id) {
   let urlString = "/todo.html"
-  if (id){
+  if(id){
     urlString = urlString + '?id=' + id;
   }
   window.location.href = urlString;
@@ -95,7 +96,28 @@ function requestConfirmToDelete(id) {
   }
 }
 
+function todoDone(todo) {
+  todo.doneDate = new Date().getTime() / 1000;
+  todo.priority = Todo.PRIORITY.done;
+  const dbObj = todo.toDbObj();
+  const dbObjJson = JSON.stringify(dbObj);
+
+  const url = BASE_URL + '/' + todo.id;
+  fetchOptions = {
+    method: 'post', body: dbObjJson, headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  fetch(url, fetchOptions)
+  .then(resp => resp.json())
+  .then(res => displayTodos(todosArray));
+}
+
+
 function displayTodos(todos){
+
+  todosArray.sort(Todo.orderToDoByPriority);
 
   const todosContainer = document.getElementById('todos-container');
 
@@ -116,8 +138,19 @@ function displayTodos(todos){
     deleteButton.onclick = () => requestConfirmToDelete(todo.id);
 
     const editButton = todoCard.querySelector('.edit-button');
-    editButton.onclick = () => goToTodoPage(todo.id);
+    if (todo.doneDate) {
+      editButton.style.display = 'none'
+    } else {
+      editButton.onclick = () => goToTodoPage(todo.id);
+    }
 
+    const doneButton = todoCard.querySelector('.done-button');
+    if (todo.doneDate) {
+      doneButton.style.display = 'none'
+    } else {
+      doneButton.onclick = () => todoDone(todo);
+    }
+    
     const divider = todoCard.querySelector('.divider');
     divider.style.backgroundColor = todo.priority.color;
 
@@ -140,8 +173,9 @@ function displayTodos(todos){
 
 function initTodos(todos){
   stopLoading();
+  console.log(todos);
   todosArray = todos.map(obj => Todo.fromDbObj(obj));
-  todosArray.sort(Todo.orderToDoByPriority);
+
   displayTodos(todosArray);
 }
 
@@ -155,3 +189,6 @@ function loadTodos(){
 }
 
 loadTodos()
+
+
+
