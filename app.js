@@ -23,7 +23,8 @@ function goToTodoPage(id) {
 function populateTagContainer(container, tags){
   for (const tag of tags) {
     const span = document.createElement('span');
-    span.classList.add('chip');
+    span.classList.add('badge');
+    span.classList.add('bg-secondary');
     const node = document.createTextNode('#' + tag);
     span.appendChild(node);
     container.appendChild(span)
@@ -34,15 +35,19 @@ function populateTagContainer(container, tags){
 function createTodoCard(todo){
 
   const cardTemplate = `
-      <span class="todo-name">#NAME</span>
-      <div class="tag-container"></div>
-      <span>#CREATIONDATE</span>
-      <div class="divider"></div>
-      <div class="buttons-container">
-        <button class="delete-button"><img width="20px" src="./assets/delete.svg" alt=""></button>
-        <button class="edit-button"><img width="20px" src="./assets/edit.svg" alt=""></button>
-        <button class="done-button"><img width="20px" src="./assets/check.svg" alt=""></button>
-        </div>`
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">#NAME</h5>
+    <h6 class="card-subtitle mb-2 text-muted">#CREATIONDATE</h6>
+    <div class="tag-container">
+    </div>
+    <div class="buttons-container">
+    <button class="btn delete-button"><img width="20px" src="./assets/delete.svg" alt=""></button>
+    <button class="btn edit-button"><img width="20px" src="./assets/edit.svg" alt=""></button>
+    <button class="btn done-button"><img width="20px" src="./assets/check.svg" alt=""></button>
+    </div>
+  </div>
+</div>`
   
   
   //const humanDate = new Date(todo.creationDate * 1000)
@@ -151,8 +156,7 @@ function displayTodos(todos){
       doneButton.onclick = () => todoDone(todo);
     }
     
-    const divider = todoCard.querySelector('.divider');
-    divider.style.backgroundColor = todo.priority.color;
+
 
     // const span = document.createElement('span');
     // const nameNode = document.createTextNode(todo.name);
